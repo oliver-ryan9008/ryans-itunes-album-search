@@ -30,11 +30,10 @@ class App extends React.Component {
         <main>
           <Navbar />
           <Switch>
-              <Route path='/' component={ Home } exact />
+            <Route path='/' component={ Home } exact />
           </Switch>
-          </main>
+        </main>
       </MuiThemeProvider>
-      
     );
   }
 }

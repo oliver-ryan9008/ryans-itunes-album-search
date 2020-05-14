@@ -2,6 +2,10 @@ import * as React from 'react';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { withStyles, Theme } from '@material-ui/core/styles';
 
+interface IProps {
+    classes: any;
+}
+
 const styles = (theme: Theme): any => ({
     root: {
         flexGrow: 1,
@@ -19,10 +23,6 @@ const styles = (theme: Theme): any => ({
         }
     }
 });
-
-interface IProps {
-    classes: any;
-}
 
 class Navbar extends React.Component<IProps> {
     state = {

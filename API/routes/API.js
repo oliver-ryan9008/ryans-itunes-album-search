@@ -15,10 +15,12 @@ module.exports = (app) => {
     app.get('/search-results/:query', (req, res) => {
         const query = encodeURIComponent(req.params.query);
         const resultsUrl = `${baseUrl}${searchParam}${query}${staticConfigParams}`;
+        console.log(`Fetching ${resultsUrl}...`);
         fetch(resultsUrl)
             .then(res => res.json())
             .then(data => {
                 res.send({ data });
+                console.log(`Success`);
             })
             .catch(err => {
                 console.error(err);

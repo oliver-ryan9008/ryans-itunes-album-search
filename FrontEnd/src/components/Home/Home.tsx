@@ -7,7 +7,6 @@ import { IState, IProps } from './Home.d';
 
 class Home extends React.Component<IProps, IState> {
     state: IState = {
-        searchQuery: '',
         albums: []
     };
 
@@ -31,7 +30,6 @@ class Home extends React.Component<IProps, IState> {
                 .then(response => response.json())
                 .then(data => {
                     const albumArray = data ? data.data.results : [];
-                    console.log(albumArray);
                     this.setState({ albums: albumArray });
                 })
                 .catch(error => console.error(error));
@@ -41,7 +39,6 @@ class Home extends React.Component<IProps, IState> {
     handleSearchQueryChange = (e: any) => {
         const value = e.target && e.target.value ? e.target.value : '';
         this.localQuery = value;
-        this.setState({ searchQuery: value });
     };
 
     handleClick = (e: any) => {

@@ -1,5 +1,4 @@
 export interface IState {
-    searchQuery: string;
     albums: any[];
 }
 
