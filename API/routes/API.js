@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 const baseUrl = `https://itunes.apple.com/`;
-const staticConfigParams = '&media=music&entity=album&attribute=artistTerm';
+const staticConfigParams = '&media=music&entity=album&attribute=artistTerm&limit=99';
 const searchParam = 'search?term='
 
 module.exports = (app) => {

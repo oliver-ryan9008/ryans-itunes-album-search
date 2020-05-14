@@ -32,6 +32,7 @@ npm start
 * [node-fetch](https://github.com/node-fetch/node-fetch)
 * [nodemon](https://nodemon.io/)
 * [morgan](https://github.com/expressjs/morgan#readme)
+* [react-custom-scrollbars](https://github.com/malte-wessel/react-custom-scrollbars)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

@@ -7,6 +7,7 @@ import { IState, IProps } from './Home.d';
 
 class Home extends React.Component<IProps, IState> {
     state: IState = {
+        searchQuery: '',
         albums: []
     };
 
@@ -39,6 +40,7 @@ class Home extends React.Component<IProps, IState> {
     handleSearchQueryChange = (e: any) => {
         const value = e.target && e.target.value ? e.target.value : '';
         this.localQuery = value;
+        this.setState({ searchQuery: value });
     };
 
     handleClick = (e: any) => {
@@ -79,7 +81,7 @@ class Home extends React.Component<IProps, IState> {
             value: this.localQuery
         };
 
-        const topAlbumsSorted = albums ? albums.sort((album1, album2) => (album1.collectionName > album2.collectionName) ? 1 : -1).slice(0, 30) : null;
+        const topAlbumsSorted = albums ? albums.sort((album1, album2) => (album1.collectionName > album2.collectionName) ? 1 : -1) : null;
 
         const filteredAlbums = topAlbumsSorted ? topAlbumsSorted.map((album: any) => {
             return this.renderAlbum(album);
