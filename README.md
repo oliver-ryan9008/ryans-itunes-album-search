@@ -1,3 +1,5 @@
+The front-end of this project was bootstrapped using [create-react-app](https://github.com/facebook/create-react-app)
+
 # Welcome to Ryan's iTunes Album Search
 
 Basic functionality for searching the iTunes API for an artist to find albums related to the artist.
