@@ -1,43 +1,50 @@
 import * as React from 'react';
-import { AppBar, Toolbar, Typography, makeStyles } from '@material-ui/core';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { withStyles, Theme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const styles = (theme: Theme): any => ({
     root: {
         flexGrow: 1,
+        backgroundColor: '#3f51b5'
+    },
+    toolbar: {
+        backgroundColor: '#3f51b5'
     },
     title: {
         flexGrow: 1,
-    },
-    name: {
-        position: 'relative',
-        marginLeft: 0,
-        width: '100%',
-        display: 'none',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(1),
-            width: 'auto',
-            display: 'block'
-        },
+        display: 'block',
+        textAlign: 'center',
+        [ theme.breakpoints.down('md') ]: {
+            width: '100vw'
+        }
     }
-}));
+});
 
-export default function Navbar() {
-    const classes = useStyles();
+interface IProps {
+    classes: any;
+}
 
-    return (
-        <React.Fragment>
-            <div className={classes.root}>
+class Navbar extends React.Component<IProps> {
+    state = {
+        searchQuery: '',
+        randomAlbums: []
+    };
+
+    render() {
+        const { classes } = this.props;
+
+        return (
+            <div className={ classes.root }>
                 <AppBar position='static'>
-                    <Toolbar>
-                        <Typography className={classes.title} variant='h6' noWrap>
-                            Crescendo Collective - Recipe Application
-                        </Typography>
-                        <Typography className={classes.name} variant='h6' noWrap>
-                            By: Ryan Oliver
+                    <Toolbar className={ classes.toolbar }>
+                        <Typography className={ classes.title } variant='h5' noWrap>
+                            Ryan's iTunes Album Search
                         </Typography>
                     </Toolbar>
                 </AppBar>
             </div>
-        </React.Fragment>
-    );
+        );
+    }
 }
+
+export default withStyles(styles, { withTheme: true })(Navbar);

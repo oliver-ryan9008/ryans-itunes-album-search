@@ -1,25 +1,13 @@
 const express = require('express');
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const app = express();
-const port = 3000;
-const Http = new XMLHttpRequest();
-const apiUrl = 'https://api.adviceslip.com/advice';
+const port = 5000;
 
-let data;
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.listen(port, () => console.log(`Ryan Oliver's Chuck Norris API server is listening on port ${port}`));
+require('./routes/API')(app);
 
-
-Http.open("GET", apiUrl);
-Http.send();
-
-Http.onreadystatechange = (e) => {
-    var response = Http.responseText;
-    data = response;
-    console.log(response);
-};
-
-// create a GET route
-app.get('/advice', (req, res) => {
-    res.send({ data });
-});
+app.listen(port, (err) => {
+	if(err) { console.log(err) };
+	console.log(`Ryan's iTunes API server is running on port ${port}`);
+})

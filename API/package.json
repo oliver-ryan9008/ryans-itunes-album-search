@@ -1,15 +1,20 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "Ryan Oliver's Chuck Norris API server",
-  "main": "index.js",
+  "description": "Ryan Oliver's iTunes API",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "author": "Ryan Oliver",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "xmlhttprequest": "^1.8.0"
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   }
 }
