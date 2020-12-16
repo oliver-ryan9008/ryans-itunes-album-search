@@ -15,8 +15,10 @@ class Album extends Component<IProps> {
           <h5 className={ classes.name }>
             { album.artistName }
           </h5>
-          <div className={ classes.imageContainer }>
-            <img className={ classes.image } src={ album.artworkUrl600 } alt={ album.artistName } />
+          <div className={classes.imageContainer}>
+            <a href={ album.collectionViewUrl } target={ '_blank' }>
+              <img src={ album.artworkUrl600 } className={classes.image} alt={album.artistName} />
+            </a>
           </div>
           <div className={ classes.albumText }>
             <div className={ classes.textWrapper }>
